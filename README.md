@@ -1,14 +1,39 @@
-Project Repo Description:
+# DarazTechTrends: Mobile Market Analysis & AI Chatbot Interface
 
-Welcome to DarazTechTrends, the repository where web scraping meets artificial intelligence to provide insightful analysis of the mobile market on daraz.pk. This comprehensive project is designed to bridge the gap between data acquisition and user interaction.
+## Description
+DarazTechTrends is an interactive system that combines advanced web scraping with an intelligent chatbot to analyze and present mobile market data from daraz.pk. This project allows users to explore mobile product trends and receive personalized recommendations through a conversational interface.
 
-Here's what's inside:
+## Features
+- Data extraction from daraz.pk for mobile products
+- An AI-powered chatbot for handling user inquiries
+- A dynamic dashboard for visual data representation
+- Flask-based server for a responsive user experience
 
-->Mobile Market Scraper: A sophisticated web scraping module that meticulously extracts data from the top mobile products on daraz.pk. It delves through pages to gather product IDs, names, prices, brands, and user reviews, filtering out accessories to focus solely on mobile devices.
+## Getting Started
 
-->Intelligent Chatbot: An interactive chatbot ready to engage users with data-driven responses. Leveraging NLP, the bot can understand and answer complex queries, like recommending the best mobile phone within a specific budget.
+### Prerequisites
+- Python 3.x
+- Pip (Python package installer)
+- Virtualenv (optional for creating a virtual environment)
 
-->Dynamic Dashboard: A visually appealing dashboard built to display key market trends at a glance. It features an interactive query field powered by the chatbot, visualization of average prices, ratings, review counts, and a showcase of top-rated products, each with a direct link to its daraz.pk page.
+### Installation
+1. Clone the repository:
 
-->Tech Stack: Dive into the code that makes this possible, utilizing Python, Flask, and SQL for backend processes, and modern frontend technologies for a seamless user experience.
-Whether you're a data enthusiast, a tech entrepreneur, or someone curious about the latest mobile market trends, DarazTechTrends offers a unique blend of data science and web development. Explore the code, interact with the chatbot, and gain insights from the dynamic dashboard. Let's navigate the mobile marketplace with precision and insight!
+2. Navigate to the project directory:
+
+3. (Optional) Create and activate a virtual environment:
+
+4. Install the required packages:
+
+- Update the `server.py` file with your database connection details.
+
+### Running the Project
+- To start the web scraper, run:
+- To start the chatbot and dashboard server, run:
+  
+## Usage
+- Access the dashboard by navigating to `http://localhost:5000` in your web browser.
+- Interact with the chatbot through the provided interface.
+  
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
