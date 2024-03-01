@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Linking a stylesheet for awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-+XXE1LwJVVtFQIeLo7j6vtKp7lKc0GndN6w84ZpmkKTA3L0EGtEG25/5Oqszl3L1" crossorigin="anonymous">
+    
+    <!-- Setting up the character set and viewport for responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of our web page -->
+    <title>Mobile Searcher</title>
+
+    <!-- Styling starts here -->
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Style for displaying error messages */
+        .error {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+        }
+
+        /* Header style with a nice blue background */
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Ensuring our main heading has no margin issues */
+        h1 {
+            margin: 0;
+        }
+
+        /* A centered container for main content */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling the form for a neat layout */
+        form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Giving some space to our labels */
+        label {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        /* Text input field styling */
+        input[type="text"] {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* Submit button styling, with that cool blue color */
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for submit button */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* H2 styling for better visibility */
+        h2 {
+            font-size: 24px;
+        }
+
+        /* Product cards container for a flex layout */
+        .product-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* Individual product card styling */
+        .product-card {
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: calc(25% - 20px);
+            position: relative;
+            text-align: center;
+        }
+
+        /* Styling the product name to avoid overflow */
+        .product-name {
+            margin: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        /* Ensuring images fit nicely within the cards */
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+        }
+
+        /* Paragraph styling for product description */
+        .product-card p {
+            margin: 0;
+        }
+
+        /* Style for 'no results' message */
+        .no-results {
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Styling links inside product cards */
+        .product-card a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Purchase button styling with an orange flair */
+        .product-button {
+            background-color: #f87424;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Hover effect for the purchase button */
+        .product-button:hover {
+            background-color: #d65e1f;
+        }
+
+        /* Ensuring consistent style for all submit buttons */
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        /* Hover effect for the submit button */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navbar styling with a unified look */
+        .navbar {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Navbar list styling for horizontal layout */
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Individual navbar item styling */
+        .navbar-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Emphasizing navbar values */
+        .navbar-value {
+            font-weight: bold;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    </style>
+</head>
+<body>
+ <!-- Header with the title and navigation bar for statistics -->
+ <header>
+    <h1>Mobile Searcher</h1>
+    <nav id="navbar" class="navbar">
+        <ul>
+            <!-- Displaying various statistics in list items -->
+            <li>Average Price: <span id="average-price" class="average-price"></span></li>
+            <li>Average Ratings: <span id="average-ratings" class="average-ratings"></span></li>
+            <li>Average Review Count: <span id="average-review-count" class="average-review-count"></span></li>
+            <li>Total Listings: <span id="total-listings" class="total-listings"></span></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main container for the search functionality and results display -->
+<div class="container">
+    <!-- Form for submitting search queries -->
+    <form id="query-form">
+        <label for="query">Enter your query:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Header for query results -->
+    <h2 class="query-results-header">Query Results</h2>
+    <!-- Container for displaying product cards as search results -->
+    <div class="product-card-container" id="results"></div>
+    <!-- Area to display error messages, if any -->
+    <div class="error" id="error-message"></div>
+</div>
+
+<script>
+    // Function to update the navigation bar with new data
+    function updateNavbarData(data) {
+        // Grabbing elements from the DOM to update their content
+        const averagePrice = document.getElementById("average-price");
+        const averageRatings = document.getElementById("average-ratings");
+        const averageReviewCount = document.getElementById("average-review-count");
+        const totalListings = document.getElementById("total-listings");
+
+        // Updating text content with formatted data
+        averagePrice.textContent = `Rs. ${data.stats.average_price}`;
+        averagePrice.classList.add("navbar-value");
+
+        averageRatings.textContent = `${countFullStars(data.stats.average_ratings)} star`;
+        averageRatings.classList.add("navbar-value");
+
+        averageReviewCount.textContent = data.stats.average_review_count;
+        averageReviewCount.classList.add("navbar-value");
+
+        totalListings.textContent = data.stats.total_listings;
+        totalListings.classList.add("navbar-value");
+    }
+
+    // Initially hiding the results header
+    const queryResultsHeader = document.querySelector(".query-results-header");
+    queryResultsHeader.style.display = "none";
+
+    // Function to calculate full stars based on rating score
+    function countFullStars(score) {
+        const maxStars = 5;
+        const fullStars = Math.ceil(score / 2); // Mapping score to a 0-5 range
+        return fullStars;
+    }
+
+    // Function to create star rating HTML based on score
+    function createStarRating(score) {
+        const maxStars = 5;
+        const fullStars = Math.ceil(score / 2); // Mapping score to a 0-5 range
+        let starHtml = '';
+
+        for (let i = 0; i < maxStars; i++) {
+            starHtml += i < fullStars ? '<span>&#9733;</span>' : '<span>&#9734;</span>'; // Adding full or empty stars
+        }
+
+        return starHtml;
+    }
+
+    // Event listener for form submission
+    document.getElementById("query-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Preventing default form submission behavior
+
+        // Fetching and handling data based on user's query
+        const query = document.getElementById("query").value;
+        fetch("http://127.0.0.1:5000/query_products", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ query: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // DOM elements for displaying results and errors
+            const resultsDiv = document.getElementById("results");
+            const errorMessageDiv = document.getElementById("error-message");
+            resultsDiv.innerHTML = ""; // Clearing previous results
+            errorMessageDiv.textContent = ""; // Clearing previous error messages
+
+            if (data.products) {
+                queryResultsHeader.style.display = "block"; // Showing the results header
+                updateNavbarData(data); // Updating navbar with new data
+
+                // Looping through products and creating product cards
+                data.products.forEach((product, index) => {
+                        const productCard = document.createElement("div");
+                        productCard.className = "product-card";
+                        const productImage = document.createElement("img");
+                        productImage.src = product["product_img"];
+                        const productName = document.createElement("p");
+
+                        productName.className = "product-name";
+                        productName.textContent = `${product["product_name"]}`;
+
+                        const productPrice = document.createElement("p");
+                        productPrice.textContent = `RS. ${product["product_price"]}`;
+
+                        const productScore = document.createElement("p");
+                        productScore.innerHTML = `Rating: ${createStarRating(product["product_score"])} (${product["total_reviews"]})`;
+
+                        const productButton = document.createElement("button");
+                        productButton.className = "product-button"; // Adding the product-button class
+                        productButton.textContent = "View on Daraz";
+                        productButton.onclick = function() {
+                            window.open(product["product_url"], '_blank');
+                        };
+
+                        const iconElement = document.createElement("i");
+                        iconElement.className = "fas fa-info-circle";
+                        // appending starts here . . .
+                        productCard.appendChild(iconElement);
+                        productCard.appendChild(productImage);
+                        productCard.appendChild(productName);
+                        productCard.appendChild(productPrice);
+                        productCard.appendChild(productScore);
+                        productCard.appendChild(productButton);
+                        
+                        resultsDiv.appendChild(productCard);
+                    });
+                } else {
+                    queryResultsHeader.style.display = "none"; 
+                    errorMessageDiv.textContent = "No relevant products found for the query."; // showing an error message . . .
+                }
+            })
+            .catch(error => {
+                const errorMessageDiv = document.getElementById("error-message");
+                errorMessageDiv.textContent = "An error occurred while processing the query."; // error while fetching the query . . .
+                console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>
