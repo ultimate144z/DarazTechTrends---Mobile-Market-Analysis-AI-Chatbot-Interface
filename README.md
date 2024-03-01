@@ -1,3 +1,5 @@
+Project Repo Description:
+
 Welcome to DarazTechTrends, the repository where web scraping meets artificial intelligence to provide insightful analysis of the mobile market on daraz.pk. This comprehensive project is designed to bridge the gap between data acquisition and user interaction.
 
 Here's what's inside:
