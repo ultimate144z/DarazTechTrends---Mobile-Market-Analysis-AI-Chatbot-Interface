@@ -20,16 +20,23 @@ DarazTechTrends is an interactive system that combines advanced web scraping wit
 1. Clone the repository:
 
 2. Navigate to the project directory:
+   - cd DarazTechTrends
 
-3. (Optional) Create and activate a virtual environment:
+4. (Optional) Create and activate a virtual environment:
+   - virtualenv venv
+   - source venv/bin/activate # On Windows use venv\Scripts\activate
 
-4. Install the required packages:
+5. Install the required packages:
+   - pip install -r requirements.txt
 
 - Update the `server.py` file with your database connection details.
 
 ### Running the Project
 - To start the web scraper, run:
+- python scraping/scraper.py
+
 - To start the chatbot and dashboard server, run:
+- python bot/server.py
   
 ## Usage
 - Access the dashboard by navigating to `http://localhost:5000` in your web browser.
