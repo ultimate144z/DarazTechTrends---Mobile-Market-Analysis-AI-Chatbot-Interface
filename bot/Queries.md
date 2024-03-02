@@ -7,4 +7,5 @@
 - give me phones that have reviews "behtreen" (figures which phone's review had the keyword behtreen)
 - top 2 best phones of samsung
 - top 2 worst phones of samsung
-(same queries can be made for "worst")
+- (same queries can be made for "worst" and other brands, also you can use 'k' instead of adding zeros but might not work in some cases)
+- those were a few queries for you to try
