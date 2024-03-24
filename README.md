@@ -41,6 +41,3 @@ DarazTechTrends is an interactive system that combines advanced web scraping wit
 ## Usage
 - Access the dashboard by navigating to `http://localhost:5000` in your web browser.
 - Interact with the chatbot through the provided interface.
-  
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
